@@ -29,4 +29,5 @@ Give these commands to your terminal:
 `./builddir/qt-counter`
 
 Loom Video of my minimal Qt application :) 
+
 https://www.loom.com/share/99fe80ef6469476a9206d84b69030463?sid=3427413c-734c-42ea-ba41-bb104b6ed8ca
