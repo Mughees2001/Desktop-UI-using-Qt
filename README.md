@@ -30,7 +30,7 @@ You will need to export paths in order to help Meson find Qt:
 
 Give these commands to your terminal:
 
-`meson setup builddir`
+`meson setup --wipe builddir`
 
 `meson compile -C builddir`
 
