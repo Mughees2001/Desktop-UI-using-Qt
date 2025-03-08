@@ -1,44 +1,78 @@
 # Desktop-UI-using-Qt
 
-A simple Qt Counter Application using Meson build and C++. 
+A simple Qt Counter Application built with Qt6 \& C++.
 
-To run on macOS, follow these steps:
+A basic Qt UI with a counter that increments when a button is clicked.
 
-## Installation
-Install Meson ninja:
-
-`brew install meson ninja`
-
-Install Qt:
-
-`brew install qt@5`
-
-## Setting up
-
-You will need to export paths in order to help Meson find Qt: 
-
-`export PATH="/opt/homebrew/opt/qt@5/bin:$PATH" `
-
-`export PKG_CONFIG_PATH="/opt/homebrew/opt/qt@5/lib/pkgconfig:$PKG_CONFIG_PATH"`
-
-`export LDFLAGS="-L/opt/homebrew/opt/qt@5/lib $LDFLAGS"  `
-
-`export CPPFLAGS="-I/opt/homebrew/opt/qt@5/include $CPPFLAGS"  `
+![Qt Counter App Screenshot](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExano0amUxZXRkeWQ3NGNtZzdid3RwdDlrNWRjeTl5bngyb2RhOWsxcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/M1ry5H6cCcH8v9Xfqc/giphy.gif)
 
 
-## Running the Application
+## Structure
+- `counter_window.hpp` - Header file for the main window class
+- `counter_window.cpp` - Implementation of the main window
+- `main.cpp` - Application entry point
+- `meson.build` - Build configuration
 
-Give these commands to your terminal:
+## Installation Instructions
 
-`meson setup --wipe builddir`
+### macOS
 
-`meson compile -C builddir`
+1. Install Meson and Ninja:
+```bash
+brew install meson ninja
+```
 
-`./builddir/qt-counter`
+2. Install Qt6:
+```bash
+brew install qt@6
+```
 
-Loom Video of my minimal Qt application :) 
+3. Set up environment variables:
+```bash
+export PATH="/opt/homebrew/opt/qt/bin:$PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/qt/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LDFLAGS="-L/opt/homebrew/opt/qt/lib $LDFLAGS"
+export CPPFLAGS="-I/opt/homebrew/opt/qt/include $CPPFLAGS"
+```
 
-https://www.loom.com/share/99fe80ef6469476a9206d84b69030463?sid=3427413c-734c-42ea-ba41-bb104b6ed8ca
+### Linux (Ubuntu/Debian)
 
-<img width="290" alt="image" src="https://github.com/user-attachments/assets/9edaaa05-199c-4517-a3f2-226454a6caa1" />
+1. Install Meson and Ninja:
+```bash
+sudo apt install meson ninja-build
+```
+
+2. Install Qt6:
+```bash
+sudo apt install qt6-base-dev libqt6widgets6 libqt6core6 libqt6gui6
+```
+
+
+## Building and Running
+
+1. Set up the build directory:
+```bash
+meson setup --wipe builddir
+```
+
+2. Compile the application:
+```bash
+meson compile -C builddir
+```
+
+3. Run the application:
+```bash
+./builddir/qt-counter
+```
+
+## Troubleshooting
+
+### Qt6 not found
+If Meson can't find Qt6, make sure the environment variables are set correctly:
+- On macOS, run the export commands listed in the macOS installation section
+- On Linux, ensure the Qt6 development packages are installed
+
+### Build errors
+- If you get build errors related to C++ version, make sure your compiler supports C++20
+- For other build errors, try cleaning the build directory with `meson setup --wipe builddir`
 

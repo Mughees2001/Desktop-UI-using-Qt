@@ -7,12 +7,12 @@ project('qt-counter', 'cpp',
     ]
 )
 
-qt5 = import('qt5')
-qt5_dep = dependency('qt5', modules: ['Core', 'Widgets', 'Gui'])
+qt6 = import('qt6')
+qt6_dep = dependency('qt6', modules: ['Core', 'Widgets', 'Gui'])
 
-preprocessed = qt5.preprocess(
+preprocessed = qt6.preprocess(
     moc_headers : ['counter_window.hpp'],
-    dependencies : qt5_dep
+    dependencies : qt6_dep
 )
 
 sources = [
@@ -23,6 +23,6 @@ sources = [
 
 executable('qt-counter',
     sources,
-    dependencies : qt5_dep,
+    dependencies : qt6_dep,
     install : true
 )
